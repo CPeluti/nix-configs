@@ -1,5 +1,5 @@
 {self, inputs, config, ...}: {
-  flake.nixosConfigurations.workstation = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.homelab = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.homelabConfiguration
       self.nixosModules.niri
