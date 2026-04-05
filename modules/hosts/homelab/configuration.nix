@@ -25,7 +25,6 @@
     #}
     networking.nat.enable = false;
     networking.nat.externalInterface = "enp3s0";
-    networking.nat.internalInterfaces = [ "wg0" ];
     networking.firewall.enable = false;
     networking.firewall.allowedTCPPorts = [ 80 443 6443 5000 8080 8085 51820 8384 22000 33435 45455 8083];
     networking.firewall.allowedUDPPorts = [ 80 443 51820 21027 8080 8085 22000 45455 8083];
@@ -86,6 +85,12 @@
       };
     };
 
+    environment.systemPackages = with pkgs; [
+      vim
+      wget
+      git
+      direnv
+    ];
     # Enable the OpenSSH daemon.
 
     services.openssh = {
