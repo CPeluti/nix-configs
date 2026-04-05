@@ -5,7 +5,6 @@
         self.nixosModules.homelabHardware
       ];
 
-    virtualisation.docker.enable = true;
     services.dockerRegistry = {
       enable = true;
       listenAddress = "0.0.0.0";
