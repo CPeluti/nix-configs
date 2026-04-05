@@ -102,11 +102,11 @@
       };
     };
 
-    services.logind.settings.Login = ''
-      HandleLidSwitch=ignore
-      HandleLidSwitchExternalPower=ignore
-      HandleLidSwitchDocked=ignore
-    '';
+    services.logind.settings.Login = {
+      HandleLidSwitch="ignore";
+      HandleLidSwitchExternalPower="ignore";
+      HandleLidSwitchDocked="ignore";
+    }
     system.stateVersion = "25.11"; # Did you read the comment?
 
   };
