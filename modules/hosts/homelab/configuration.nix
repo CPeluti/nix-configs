@@ -50,9 +50,13 @@
     users.users.caio = {
       isNormalUser = true;
       description = "Caio";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "docker" "networkmanager" "wheel" ];
       shell = lib.getExe pkgs.zsh;
     };
+
+boot.kernel.sysctl = {
+  "net.ipv4.ip_unprivileged_port_start" = 80;
+	};
 
     services.syncthing = {
       enable = true;
