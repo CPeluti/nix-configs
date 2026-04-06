@@ -11,7 +11,7 @@
       enable = true;
       settings.user.email = "cpeluti@gmail.com";
       settings.user.name = "Caio Peluti";
-      extraConfig = {
+      settings = {
         pull.rebase = false;
         init.defaultBranch = "main";
       };
