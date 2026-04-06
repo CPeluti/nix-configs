@@ -5,10 +5,13 @@
       home.packages = [
         pkgs.spotify-player
         pkgs.spotify
-        (pkgs.beets.override {
-          pluginPackages = with pkgs.python313Packages; [
-            beets-alternatives
-          ];
+        (pkgs.python313Packages.beets.override {
+          pluginOverrides = {
+            alternatives = {
+              enable = true;
+              propagatedBuildInputs = [ pkgs.python313Packages.beets-alternatives ];
+            };
+          };
         })
       ];
       services.spotifyd = {
