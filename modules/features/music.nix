@@ -2,9 +2,15 @@
   flake.homeModules.music = 
     { pkgs, nixpkgs, ... }: {
       nixpkgs.config.allowUnfreePredicate = (pkg: true);
-      home.packages = [pkgs.spotify-player pkgs.spotify (pkgs.beets.override {
-        pluginPackages = [ pkgs.python313Packages.beets-alternatives ];
-      })];
+      home.packages = [
+        pkgs.spotify-player
+        pkgs.spotify
+        (pkgs.beets.override {
+          pluginPackages = with pkgs.python313Packages; [
+            beets-alternatives
+          ];
+        })
+      ];
       services.spotifyd = {
         enable = true;
         settings = {
