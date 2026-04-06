@@ -25,7 +25,7 @@
           };
           keyboard = {
             xkb.layout = "us";
-            xkb.variant = "intl";
+            xkb.variant = "altgr-intl";
           };
           focus-follows-mouse = {};
         };
