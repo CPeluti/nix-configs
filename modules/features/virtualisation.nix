@@ -1,8 +1,7 @@
 {self, inputs, ...}: {
   flake.nixosModules.virtualisation = 
     { pkgs, ... }: {
-      virtualisation.podman.enable = true;
-      virtualisation.podman.dockerCompat = true;
+      virtualisation.docker.enable = true;
       environment.systemPackages = with pkgs; [
         docker-compose
       ];

@@ -55,7 +55,7 @@
     users.users.caio = {
       isNormalUser = true;
       description = "Caio";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker"];
       shell = lib.getExe pkgs.zsh;
     };
 
