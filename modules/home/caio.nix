@@ -20,6 +20,8 @@
     imports = [
       self.homeModules.git
       self.homeModules.shell
+      self.homeModules.music
+      self.homeModules.communication
     ];
 
   };

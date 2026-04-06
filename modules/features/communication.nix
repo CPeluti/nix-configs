@@ -1,8 +1,7 @@
 {self, inputs, ...}: {
-  flake.nixosModules.communication = 
+  flake.homeModules.communication = 
     { pkgs, ... }: {
-      environment.systemPackages = [
-        pkgs.discord
+      home.packages = [
         pkgs.telegram-desktop
         pkgs.vesktop
       ];
