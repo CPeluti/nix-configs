@@ -5,6 +5,7 @@
       home.packages = [
         pkgs.spotify-player
         pkgs.spotify
+        pkgs.flac
         (pkgs.python313Packages.beets.override {
           pluginOverrides = {
             alternatives = {
