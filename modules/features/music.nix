@@ -6,6 +6,8 @@
         pkgs.spotify-player
         pkgs.spotify
         pkgs.flac
+	pkgs.shntool
+	pkgs.cuetools
         (pkgs.python313Packages.beets.override {
           pluginOverrides = {
             alternatives = {
