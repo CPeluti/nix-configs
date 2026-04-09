@@ -6,7 +6,7 @@
   ...
 }: {
 
-  flake.homeModules.caio = {...}: {
+  flake.homeModules.caio = {pkgs, ...}: {
     
     programs.home-manager.enable = true;
 
@@ -24,6 +24,7 @@
       self.homeModules.communication
       self.homeModules.remoteAccess
       self.homeModules.dev
+      self.homeModules.terminal
     ];
 
   };
