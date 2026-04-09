@@ -4,10 +4,11 @@
       nixpkgs.config.allowUnfreePredicate = (pkg: true);
       home.packages = [
         pkgs.spotify-player
+	pkgs.puddletag
         pkgs.spotify
         pkgs.flac
-	pkgs.shntool
-	pkgs.cuetools
+        pkgs.shntool
+        pkgs.cuetools
         (pkgs.python313Packages.beets.override {
           pluginOverrides = {
             alternatives = {

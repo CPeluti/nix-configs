@@ -77,11 +77,8 @@
     };
 
     environment.systemPackages = with pkgs; [
-      ghostty
-      vscode
       vim
       wget
-      git
       bibata-cursors
       direnv
     ];

@@ -23,6 +23,7 @@
       self.homeModules.music
       self.homeModules.communication
       self.homeModules.remoteAccess
+      self.homeModules.dev
     ];
 
   };

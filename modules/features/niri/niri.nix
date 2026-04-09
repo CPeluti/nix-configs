@@ -61,7 +61,7 @@
         layout.gaps = 16;
 
         binds = {
-          "Mod+Return".spawn-sh = lib.getExe pkgs.ghostty;
+          "Mod+Return".spawn-sh = lib.getExe pkgs.wezterm;
           "Mod+Q".close-window = {};
           "Mod+SPACE".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
 
