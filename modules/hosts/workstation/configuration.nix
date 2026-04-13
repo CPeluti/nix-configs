@@ -45,6 +45,9 @@
 
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
+    security.pki.certificates = [
+      (builtins.readFile ../../../config/crt/root.crt)
+    ];
     services.pipewire = {
       enable = true;
       alsa.enable = true;
