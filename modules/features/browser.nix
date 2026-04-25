@@ -1,9 +1,20 @@
 {self, inputs, ...}: {
-  flake.nixosModules.browser = 
+  flake.homeModules.browser = 
     { pkgs, ... }: {
-      environment.systemPackages = [
-        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-        inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+      programs.home-manager.enable = true;
+
+      imports = [
+        inputs.zen-browser.homeModules.beta
       ];
+      programs.zen-browser = {
+        enable = true;
+        # any other options under `programs.firefox` are also supported here.
+        # see `man home-configuration.nix`.
+        policies = {
+          certificates = {
+            ImportEnterpriseRoots = true;
+          };
+        };
+      };
     };
 }

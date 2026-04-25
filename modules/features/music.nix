@@ -4,7 +4,7 @@
       nixpkgs.config.allowUnfreePredicate = (pkg: true);
       home.packages = [
         pkgs.spotify-player
-	pkgs.puddletag
+	      pkgs.puddletag
         pkgs.spotify
         pkgs.flac
         pkgs.shntool
