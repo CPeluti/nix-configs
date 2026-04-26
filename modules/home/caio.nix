@@ -25,6 +25,8 @@
       self.homeModules.remoteAccess
       self.homeModules.dev
       self.homeModules.terminal
+      self.homeModules.browser
+      self.homeModules.neovim
     ];
 
   };

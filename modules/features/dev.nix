@@ -1,10 +1,8 @@
 {self, inputs, ...}: {
   flake.homeModules.dev = 
-    { pkgs, inputs, ... }: {
-      imports = [
-        ./neovim/module.nix
-      ];
-      wrappers.neovim.enable = true;
+    { pkgs, ... }: {
+      programs.home-manager.enable = true;
+
       home.packages = [
         pkgs.zed-editor
         pkgs.vscode

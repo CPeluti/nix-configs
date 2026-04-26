@@ -90,14 +90,14 @@
           "Mod+K".focus-window-up = {};
           "Mod+L".focus-column-right = {};
 
-          "Mod+Ctrl+Left".move-column-left = {};
-          "Mod+Ctrl+Down".move-window-down = {};
-          "Mod+Ctrl+Up".move-window-up = {};
-          "Mod+Ctrl+Right".move-column-right = {};
-          "Mod+Ctrl+H".move-column-left = {};
-          "Mod+Ctrl+J".move-window-down = {};
-          "Mod+Ctrl+K".move-window-up = {};
-          "Mod+Ctrl+L".move-column-right = {};
+          "Mod+Ctrl+Left".move-column-left-or-to-monitor-left = {};
+          "Mod+Ctrl+Down".move-window-down-or-to-workspace-down = {};
+          "Mod+Ctrl+Up".move-window-up-or-to-workspace-up = {};
+          "Mod+Ctrl+Right".move-column-right-or-to-monitor-right = {};
+          "Mod+Ctrl+H".move-column-left-or-to-monitor-left = {};
+          "Mod+Ctrl+J".move-window-down-or-to-workspace-down = {};
+          "Mod+Ctrl+K".move-window-up-or-to-workspace-up = {};
+          "Mod+Ctrl+L".move-column-right-or-to-monitor-right = {};
 
           # // Mod+J     { focus-window-or-workspace-down; }
           # // Mod+K     { focus-window-or-workspace-up; }

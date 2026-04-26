@@ -8,7 +8,6 @@
         modules = [
           self.nixosModules.workstationConfiguration
           self.nixosModules.niri
-          self.nixosModules.browser
           self.nixosModules.vpn
           inputs.home-manager.nixosModules.home-manager
           {

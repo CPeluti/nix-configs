@@ -80,12 +80,11 @@
     };
 
     environment.systemPackages = with pkgs; [
-      vim
       wget
       bibata-cursors
       direnv
     ];
-    environment.variables.EDITOR = "vim";
+    environment.variables.EDITOR = "nvim";
 
     system.stateVersion = "25.11"; # Did you read the comment?
 
