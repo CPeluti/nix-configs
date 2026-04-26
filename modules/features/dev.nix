@@ -13,6 +13,7 @@
         pkgs.yazi
         pkgs.zellij
         pkgs.lazygit
+        pkgs.zoxide
       ];
     };
 }
