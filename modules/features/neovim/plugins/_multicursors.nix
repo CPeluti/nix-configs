@@ -1,50 +1,53 @@
-{...}: {
+{ pkgs, ... }: let
+  lua = cmd: "<cmd>lua require('multicursor-nvim')." + cmd + "<CR>";
+in {
   programs.nvf.settings.vim.lazy.plugins = {
-    "multicursors-nvim" = {
-      package = "multicursors-nvim";
+    "multicursor.nvim" = {
+      package = pkgs.vimPlugins.multicursor-nvim;
 
-      setupModule = "multicursors";
+      setupModule = "multicursor-nvim";
       lazy = true;
+
       keys = [
         {
           mode = ["n" "x"];
           key = "<up>";
-          action = "function() mc.lineAddCursor(-1) end";
+          action = lua "lineAddCursor(-1)";
         }
         {
           mode = ["n" "x"];
           key = "<down>";
-          action = "function() mc.lineAddCursor(1) end";
+          action = lua "lineAddCursor(1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader><up>";
-          action = "function() mc.lineSkipCursor(-1) end";
+          action = lua "lineSkipCursor(-1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader><down>";
-          action = "function() mc.lineSkipCursor(1) end";
+          action = lua "lineSkipCursor(1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader>n";
-          action = "function() mc.matchAddCursor(1) end";
+          action = lua "matchAddCursor(1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader>s";
-          action = "function() mc.matchSkipCursor(1) end";
+          action = lua "matchSkipCursor(1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader>N";
-          action = "function() mc.matchAddCursor(-1) end";
+          action = lua "matchAddCursor(-1)";
         }
         {
           mode = ["n" "x"];
           key = "<leader>S";
-          action = "function() mc.matchSkipCursor(-1) end";
+          action = lua "matchSkipCursor(-1)";
         }
       ];
     };
