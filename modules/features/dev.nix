@@ -8,7 +8,6 @@
         pkgs.vscode
         pkgs.nil
         pkgs.nixd
-        pkgs.helix
       ];
     };
 }

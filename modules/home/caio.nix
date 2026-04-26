@@ -27,6 +27,7 @@
       self.homeModules.terminal
       self.homeModules.browser
       self.homeModules.neovim
+      self.homeModules.helix
     ];
 
   };
