@@ -84,7 +84,7 @@
       bibata-cursors
       direnv
     ];
-    environment.variables.EDITOR = "nvim";
+    environment.variables.EDITOR = "hx";
 
     system.stateVersion = "25.11"; # Did you read the comment?
 

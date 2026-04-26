@@ -15,6 +15,10 @@
           {
             name = "elixir";
             auto-format = true;
+            file-types = [
+              "ex"
+              "heex"
+            ];
           }
         ];
         settings = {

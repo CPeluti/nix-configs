@@ -11,9 +11,9 @@
         pkgs.nil
         pkgs.nixd
         pkgs.yazi
-        pkgs.zellij
         pkgs.lazygit
         pkgs.zoxide
+        pkgs.beam27Packages.elixir-ls
       ];
     };
 }
