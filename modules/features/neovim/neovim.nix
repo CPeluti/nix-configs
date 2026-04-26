@@ -1,12 +1,20 @@
-{self, inputs, nvf ...}: {
-  flake.homeModules.neovim = 
-    { pkgs, ... }: {
-      customNeovim = nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [configModule];
+{ self, inputs, ... }: {
+  flake.homeModules.neovim = { pkgs, ... }: {
+    imports = [
+      inputs.nvf.homeManagerModules.default
+      ./plugins/oil.nix
+    ];
+    programs.nvf = {
+      enable = true;
+      # your settings need to go into the settings attribute set
+      # most settings are documented in the appendix
+      settings = {
+        vim.viAlias = false;
+        vim.vimAlias = true;
+        vim.lsp = {
+          enable = true;
+        };
       };
-      home.packages = [
-        customNeovim.neovim
-      ];
     };
+  };
 }
