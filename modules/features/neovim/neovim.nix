@@ -2,7 +2,8 @@
   flake.homeModules.neovim = { pkgs, ... }: {
     imports = [
       inputs.nvf.homeManagerModules.default
-      ./plugins/oil.nix
+      ./plugins/_oil.nix
+      ./plugins/_multicursors.nix
     ];
     programs.nvf = {
       enable = true;

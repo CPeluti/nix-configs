@@ -1,5 +1,5 @@
 {...}: {
-  nvf.settings.vim.lazy.plugins = {
+  programs.nvf.settings.vim.lazy.plugins = {
     "oil-nvim" = {
       package = "oil-nvim";
 
@@ -13,7 +13,7 @@
         {
           key = "-";
           mode = "n";
-          action = ":<CMD>Oil<CR>";
+          action = "<CMD>Oil<CR>";
         }
       ];
     };
