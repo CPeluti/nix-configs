@@ -2,6 +2,9 @@
 {
   flake.homeModules.zellij =
     { pkgs, ... }:
+    let
+      zjstatus = inputs.zjstatus.packages.${pkgs.system}.default;
+    in
     {
       programs.zellij = {
         enable = true;
@@ -9,10 +12,13 @@
 
         settings = {
           theme = "catppuccin-mocha";
-          default_layout = "compact";
-          pane_frames = false;
-        };
+          plugins = {
+            zjstatus.path = "${zjstatus}/bin/zjstatus.wasm";
+          };
 
+        };
       };
+
+      xdg.configFile."zellij/layouts/default.kdl".source = ../../config/zellij/dev.kdl;
     };
 }
