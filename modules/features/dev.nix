@@ -10,10 +10,11 @@
         pkgs.vscode
         pkgs.nil
         pkgs.nixd
-        pkgs.yazi
         pkgs.lazygit
         pkgs.zoxide
         pkgs.beam27Packages.elixir-ls
+        pkgs.jq
       ];
+
     };
 }

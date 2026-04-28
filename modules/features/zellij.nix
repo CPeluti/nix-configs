@@ -1,7 +1,7 @@
 { self, inputs, ... }:
 {
   flake.homeModules.zellij =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     let
       zjstatus = inputs.zjstatus.packages.${pkgs.system}.default;
     in
@@ -11,14 +11,15 @@
         enableZshIntegration = true;
 
         settings = {
+          default_layout = "dev";
           theme = "catppuccin-mocha";
           plugins = {
-            zjstatus.path = "${zjstatus}/bin/zjstatus.wasm";
+            zjstatus.location = "file:${zjstatus}/bin/zjstatus.wasm";
           };
+          layout_dir = "${config.xdg.configHome}/zellij/layouts";
 
         };
       };
-
-      xdg.configFile."zellij/layouts/default.kdl".source = ../../config/zellij/dev.kdl;
+      xdg.configFile."zellij/layouts".source = ../../config/zellij;
     };
 }

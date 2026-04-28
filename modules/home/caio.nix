@@ -32,6 +32,7 @@
         self.homeModules.neovim
         self.homeModules.helix
         self.homeModules.zellij
+        self.homeModules.yazi
       ];
 
     };
