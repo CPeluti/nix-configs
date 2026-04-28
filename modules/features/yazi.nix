@@ -3,21 +3,7 @@
   flake.homeModules.yazi = {
     programs.yazi = {
       enable = true;
-      settings = {
-        mgr = {
-          keymap = [
-            {
-              on = "<Enter>";
-              run = "shell 'echo $@'";
-            }
-          ];
-          ratio = [
-            0
-            1
-            0
-          ];
-        };
-      };
     };
+    xdg.configFile."yazi/yazi.toml".source = ../../config/yazi/yazi.toml;
   };
 }
