@@ -1,4 +1,0 @@
-[mgr]
-keymap = [
-  {on = "<Enter>", run = "echo $@"}
-]

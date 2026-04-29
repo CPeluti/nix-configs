@@ -1,92 +1,108 @@
-{self, inputs, ...}: {
-  flake.nixosModules.workstationConfiguration = {config, lib, pkgs, modulesPath, ...}: {
-    imports =
-      [ # Include the results of the hardware scan.
+{ self, inputs, ... }:
+{
+  flake.nixosModules.workstationConfiguration =
+    {
+      config,
+      lib,
+      pkgs,
+      modulesPath,
+      ...
+    }:
+    {
+      imports = [
+        # Include the results of the hardware scan.
         self.nixosModules.workstationHardware
       ];
 
-    boot.loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        configurationLimit = 5;
+      boot.loader = {
+        grub = {
+          enable = true;
+          device = "nodev";
+          efiSupport = true;
+          useOSProber = true;
+          configurationLimit = 5;
+        };
       };
-    };
-    boot.loader.efi.canTouchEfiVariables = true;
+      boot.loader.efi.canTouchEfiVariables = true;
 
-    networking.hostName = "workstation"; # Define your hostname.
+      networking.hostName = "workstation"; # Define your hostname.
 
-    networking.networkmanager.enable = true;
+      networking.networkmanager.enable = true;
 
-    time.timeZone = "America/Sao_Paulo";
+      time.timeZone = "America/Sao_Paulo";
 
-    i18n.defaultLocale = "en_US.UTF-8";
+      i18n.defaultLocale = "en_US.UTF-8";
 
-    i18n.extraLocaleSettings = {
-      LC_ADDRESS = "pt_BR.UTF-8";
-      LC_IDENTIFICATION = "pt_BR.UTF-8";
-      LC_MEASUREMENT = "pt_BR.UTF-8";
-      LC_MONETARY = "pt_BR.UTF-8";
-      LC_NAME = "pt_BR.UTF-8";
-      LC_NUMERIC = "pt_BR.UTF-8";
-      LC_PAPER = "pt_BR.UTF-8";
-      LC_TELEPHONE = "pt_BR.UTF-8";
-      LC_TIME = "pt_BR.UTF-8";
-    };
+      i18n.extraLocaleSettings = {
+        LC_ADDRESS = "pt_BR.UTF-8";
+        LC_IDENTIFICATION = "pt_BR.UTF-8";
+        LC_MEASUREMENT = "pt_BR.UTF-8";
+        LC_MONETARY = "pt_BR.UTF-8";
+        LC_NAME = "pt_BR.UTF-8";
+        LC_NUMERIC = "pt_BR.UTF-8";
+        LC_PAPER = "pt_BR.UTF-8";
+        LC_TELEPHONE = "pt_BR.UTF-8";
+        LC_TIME = "pt_BR.UTF-8";
+      };
 
-    services.xserver.enable = true;
+      services.xserver.enable = true;
 
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
+      services.displayManager.gdm.enable = true;
+      services.desktopManager.gnome.enable = true;
 
-    services.printing.enable = true;
+      services.printing.enable = true;
 
-    services.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    security.pki.certificates = [
-      (builtins.readFile ../../../config/crt/root.crt)
-    ];
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
-    users.users.caio = {
-      isNormalUser = true;
-      description = "Caio";
-      extraGroups = [ "networkmanager" "wheel" "docker"];
-      shell = lib.getExe pkgs.zsh;
-    };
-
-    programs.firefox.enable = true;
-
-    nixpkgs.config.allowUnfree = true;
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-    xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
+      services.pulseaudio.enable = false;
+      security.rtkit.enable = true;
+      security.pki.certificates = [
+        (builtins.readFile ../../../config/crt/root.crt)
       ];
-      config = {
-        common.default = [ "gnome" ];
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
       };
+
+      users.users.caio = {
+        isNormalUser = true;
+        description = "Caio";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "docker"
+        ];
+        shell = lib.getExe pkgs.zsh;
+      };
+
+      programs.firefox.enable = true;
+
+      nixpkgs.config.allowUnfree = true;
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+
+      xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+        extraPortals = [
+          pkgs.xdg-desktop-portal-gtk
+          pkgs.xdg-desktop-portal-gnome
+        ];
+        config = {
+          common.default = [ "gnome" ];
+        };
+      };
+
+      environment.systemPackages = with pkgs; [
+        wget
+        bibata-cursors
+        direnv
+      ];
+      environment.variables.EDITOR = "nvim";
+
+      system.stateVersion = "25.11"; # Did you read the comment?
+
     };
-
-    environment.systemPackages = with pkgs; [
-      wget
-      bibata-cursors
-      direnv
-    ];
-    environment.variables.EDITOR = "hx";
-
-    system.stateVersion = "25.11"; # Did you read the comment?
-
-  };
 }

@@ -11,6 +11,7 @@
         enableZshIntegration = true;
 
         settings = {
+          show_startup_tips = false;
           default_layout = "dev";
           theme = "catppuccin-mocha";
           plugins = {
