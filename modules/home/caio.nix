@@ -14,8 +14,6 @@
       programs.home-manager.enable = true;
 
       home = {
-        username = "caio";
-        homeDirectory = "/home/caio";
         sessionPath = [ "$HOME/.local/bin" ];
         stateVersion = "26.05";
       };
