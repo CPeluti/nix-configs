@@ -6,13 +6,11 @@
       self.nixosModules.vpn
       self.nixosModules.virtualisation
       inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager.users.caio = {
-          imports = [
-            config.flake.homeModules.caio
-          ];
-        };
-      }
+      (self.lib.mkHome {
+        username = "caio";
+        homeDir = "/Users/caio";
+        homeModule = "config.flake.homeModules.caio";
+      })
     ];
   };
 }

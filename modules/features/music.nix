@@ -17,15 +17,15 @@
             };
           };
         })
+        # (pkgs.python313Packages.beets.override {
+        #   pluginOverrides = {
+        #     alternatives = {
+        #       enable = true;
+        #       propagatedBuildInputs = [ pkgs.python313Packages.beets-alternatives ];
+        #     };
+        #   };
+        # })
       ];
-      services.spotifyd = {
-        enable = true;
-        settings = {
-          global = {
-            device_name = "nixos";
-            bitrate = 320;
-          };
-        };
-      };
+     
     };
 }
