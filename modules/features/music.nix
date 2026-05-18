@@ -8,6 +8,7 @@
         pkgs.flac
 	pkgs.shntool
 	pkgs.cuetools
+	pkgs.wrtag
         (pkgs.python313Packages.beets.override {
           pluginOverrides = {
             alternatives = {
